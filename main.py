@@ -3,6 +3,9 @@
 [init] flows=14  intersections=12  state_dim=50  envs=210  device=cpu
 [init] intersections: [(1, 1), (1, 2), (1, 3), (2, 1), (2, 2), (2, 3), (3, 1), (3, 2), (3, 3), (4, 1), (4, 2), (4, 3)]
 [init] grad_steps/iter=26  batch=256  buffer=200000
+
+
+
 main.py -- DQN traffic-signal training using ONLY flow_3_4.json.
 
 No roadnet.json and no CityFlow engine.  The simulator is built by
