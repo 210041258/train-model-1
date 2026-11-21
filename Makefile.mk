@@ -11,6 +11,7 @@ help:
 	@echo "  make setup      : Install dependencies from requirements.txt"
 	@echo "  make train      : Run the main training script (main.py)"
 	@echo "  make eval       : Run multi-seed evaluation (multi_seed_eval.py)"
+	@echo "  make behavior      : Run decision behavior analysis (NEW)"
 	@echo "  make analyze    : Run convergence analysis and generate plots"
 	@echo "  make pipeline   : Run train, eval, and analyze in sequence"
 	@echo "  make clean      : Remove Python cache files (__pycache__)"
@@ -38,6 +39,22 @@ eval:
 analyze:
 	@echo "Running convergence analysis..."
 	$(PYTHON) $(ANALYSIS_SCRIPT)
+
+
+.PHONY: convergence
+convergence:
+	@echo "Running convergence analysis..."
+	$(PYTHON) $(CONVERGENCE_SCRIPT)
+
+.PHONY: behavior
+behavior:
+	@echo "Running decision behavior analysis..."
+	$(PYTHON) $(BEHAVIOR_SCRIPT)
+
+# Run ALL analyses
+.PHONY: analyze_all
+analyze_all: convergence behavior
+	@echo "All analyses complete!"
 
 # Run the whole pipeline
 .PHONY: pipeline
